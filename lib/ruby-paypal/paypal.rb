@@ -625,7 +625,16 @@ class Paypal
       make_nvp_call(params)
     end
 
-  # --------------------------------------------------------------------------------------------------------------------------------------
+  def create_billing_agreement(token, other_params={})
+    params = {
+        "TOKEN" => token,
+        "METHOD" => 'CreateBillingAgreement'
+    }
+    params.merge! other_params
+    make_nvp_call(params)
+  end
+
+    # --------------------------------------------------------------------------------------------------------------------------------------
 
   private
 
